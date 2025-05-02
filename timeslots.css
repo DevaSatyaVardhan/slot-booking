@@ -1,0 +1,65 @@
+/* Time Slots Styles */
+.timeslots-container {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.timeslot-period h3 {
+  color: var(--color-secondary-dark);
+  margin-bottom: var(--space-3);
+  font-size: var(--font-size-lg);
+  border-bottom: 2px solid var(--color-neutral-200);
+  padding-bottom: var(--space-2);
+}
+
+.timeslot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: var(--space-3);
+}
+
+.timeslot-btn {
+  background-color: var(--color-neutral-100);
+  border: 1px solid var(--color-neutral-200);
+  padding: var(--space-3);
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-size: var(--font-size-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeslot-btn:hover:not(.booked) {
+  background-color: var(--color-primary-light);
+  color: white;
+  border-color: var(--color-primary-light);
+}
+
+.timeslot-btn.selected {
+  background-color: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+  font-weight: 500;
+}
+
+.timeslot-btn.booked {
+  background-color: var(--color-neutral-200);
+  color: var(--color-neutral-500);
+  cursor: not-allowed;
+  position: relative;
+  overflow: hidden;
+}
+
+.timeslot-btn.booked::before {
+  content: 'Booked';
+  position: absolute;
+  background-color: var(--color-neutral-400);
+  color: white;
+  font-size: var(--font-size-xs);
+  padding: 2px var(--space-1);
+  top: 0;
+  right: 0;
+  transform: rotate(45deg) translate(0, -50%);
+}
